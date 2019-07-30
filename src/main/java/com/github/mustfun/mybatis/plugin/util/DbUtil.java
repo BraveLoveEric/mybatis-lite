@@ -23,7 +23,7 @@ public class DbUtil {
     private String password;
 
     public DbUtil(String url, String dbName, String userName, String password) {
-        this.url = "jdbc:mysql://" + url + ":3306/" + dbName
+        this.url = "jdbc:dm://" + url + ":12345/" + dbName
             + "?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT";
         this.username = userName;
         this.password = password;
@@ -35,7 +35,7 @@ public class DbUtil {
      * @date 2019/1/22
      */
     public DbUtil(String url, String dbName, String userName, String password, int port) {
-        this.url = "jdbc:mysql://" + url + ":" + port + "/" + dbName
+        this.url = "jdbc:dm://" + url + ":" + port + "/" + dbName
             + "?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT";
         this.username = userName;
         this.password = password;
@@ -49,7 +49,7 @@ public class DbUtil {
     public Connection getConnection() {
         Connection conn = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("dm.jdbc.driver.DmDriver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

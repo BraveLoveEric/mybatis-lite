@@ -36,11 +36,11 @@ repositories {
 }
 
 dependencies {
-    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'
+
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
     compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.23.1'
     compile group: 'org.yaml', name: 'snakeyaml', version: '1.21'
-
+    compile fileTree(dir: 'src/main/resources/libs', includes: ['*.jar'])
     
     testCompile gradleTestKit()
     testCompile 'org.spockframework:spock-core:1.0-groovy-2.4', {
@@ -53,7 +53,7 @@ intellij {
     //def ideaVersionExternDefinition = System.getenv("IDEA_VERSION")
     //version = ideaVersionExternDefinition ? ideaVersionExternDefinition : ideaVersion
     //println "Building for IntelliJ version: ${version}"
-    version = 'IU-2018.2'
+    version = 'IU-2019.1'
     plugins = ['coverage','Spring','DatabaseTools']//'coverage'
     pluginName = 'Mybatis-Lite'
 }

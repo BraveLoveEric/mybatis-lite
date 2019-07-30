@@ -20,7 +20,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="localhost"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="77a45" class="javax.swing.JTextField" binding="userName">
@@ -30,7 +30,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="root"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="6bb74" class="javax.swing.JLabel" binding="addressText">
@@ -48,7 +48,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="root"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="7f308" class="javax.swing.JTextField" binding="port">
@@ -58,7 +58,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="3306"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="ff4b" class="javax.swing.JLabel" binding="portText">
@@ -133,7 +133,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="biwann"/>
+          <text value=""/>
         </properties>
       </component>
       <scrollpane id="bb586" class="com.intellij.ui.components.JBScrollPane" binding="templatePanel">
@@ -174,7 +174,7 @@
               <component id="ce424" class="com.intellij.ui.components.JBTextField" binding="tablePrefixInput">
                 <constraints/>
                 <properties>
-                  <margin top="0" left="0" bottom="0" right="0"/>
+                  <margin top="2" left="5" bottom="2" right="5"/>
                   <preferredSize width="250" height="30"/>
                   <text value=""/>
                 </properties>
@@ -203,7 +203,7 @@
               <component id="9cb33" class="com.intellij.ui.components.JBTextField" binding="daoInput">
                 <constraints/>
                 <properties>
-                  <margin top="0" left="10" bottom="0" right="0"/>
+                  <margin top="2" left="5" bottom="2" right="5"/>
                   <preferredSize width="250" height="30"/>
                   <text value=""/>
                 </properties>

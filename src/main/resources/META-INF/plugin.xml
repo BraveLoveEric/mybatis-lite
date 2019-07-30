@@ -62,7 +62,7 @@
       ]]>
     </change-notes>
 
-    <idea-version since-build="171.1834" until-build="183.*"/>
+    <idea-version since-build="183.*" until-build="192.*"/>
     <depends optional="true">com.intellij.database</depends>
     <depends optional="true">com.intellij.spring</depends>
 

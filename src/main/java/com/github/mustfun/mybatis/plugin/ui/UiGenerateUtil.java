@@ -99,7 +99,7 @@ public final class UiGenerateUtil {
             DbService dbService = DbService.getInstance(project);
             Connection connection = dbService.getConnection(dbSourcePo);
             if (connection == null) {
-                Messages.showMessageDialog("数据库连接失败", "连接数据库提示", Messages.getInformationIcon());
+                Messages.showMessageDialog("达梦数据库连接失败", "连接数据库提示", Messages.getInformationIcon());
                 return;
             }
             ConnectionHolder.addConnection(MybatisConstants.MYSQL_DB_CONNECTION,connection);
