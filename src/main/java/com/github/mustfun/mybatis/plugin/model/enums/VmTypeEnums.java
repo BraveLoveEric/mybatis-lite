@@ -8,7 +8,7 @@ package com.github.mustfun.mybatis.plugin.model.enums;
  */
 public enum VmTypeEnums {
     RESULT(4,"Result层"),
-    MODEL_PO(5,"Po层"),
+    MODEL(5,"Model层"),
     MODEL_BO(6,"Bo层"),
     MODEL_REQ(7,"请求Model层"),
     MODEL_RESP(8,"返回Model层"),

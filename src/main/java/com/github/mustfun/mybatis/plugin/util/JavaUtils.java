@@ -266,10 +266,6 @@ public final class JavaUtils {
     }
 
     public static String getClassType(Integer template) {
-        if (template.equals(VmTypeEnums.MODEL_PO.getCode())) {
-            return "/po";
-        }
-
         if (template.equals(VmTypeEnums.MODEL_BO.getCode())) {
             return "/bo";
         }

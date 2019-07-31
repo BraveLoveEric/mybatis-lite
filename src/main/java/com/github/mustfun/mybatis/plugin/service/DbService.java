@@ -287,6 +287,21 @@ public class DbService {
         if ("Long".equals(attrType)){
             column.setAttrTypePath("java.lang.Long");
         }
+        if ("String".equals(attrType)){
+            column.setAttrTypePath("java.lang.String");
+        }
+        if ("Double".equals(attrType)){
+            column.setAttrTypePath("java.lang.Double");
+        }
+        if ("Float".equals(attrType)){
+            column.setAttrTypePath("java.lang.Float");
+        }
+        if ("Date".equals(attrType)){
+            column.setAttrTypePath("java.lang.Date");
+        }
+        if ("BigDecimal".equals(attrType)){
+            column.setAttrTypePath("java.math.BigDecimal");
+        }
     }
 
 
@@ -298,14 +313,14 @@ public class DbService {
      */
     private static void importNeedClass(VelocityContext context, Integer vmType, String className){
         ArrayList<String> arrayList = new ArrayList<>();
-        String poImport = fileHashMap.get(VmTypeEnums.MODEL_PO.getCode());
+        String modelImport = fileHashMap.get(VmTypeEnums.MODEL.getCode());
         String daoImport = fileHashMap.get(VmTypeEnums.DAO.getCode());
         String serverImport = fileHashMap.get(VmTypeEnums.SERVICE.getCode());
         String resultImport = fileHashMap.get(VmTypeEnums.RESULT.getCode());
         // FIXME: 2018/6/27
-        if (StringUtils.isEmpty(poImport)){
-            VirtualFile filePattenPath = JavaUtils.getFilePattenPath(project.getBaseDir(), className + "po.java",className+".java");
-            poImport = filePattenPath==null?null:filePattenPath.getPath();
+        if (StringUtils.isEmpty(modelImport)){
+            VirtualFile filePattenPath = JavaUtils.getFilePattenPath(project.getBaseDir(), className + ".java",className+".java");
+            modelImport = filePattenPath==null?null:filePattenPath.getPath();
         }
         if (StringUtils.isEmpty(daoImport)){
             VirtualFile filePattenPath = JavaUtils.getFilePattenPath(project.getBaseDir(), className + "Dao.java");
@@ -320,51 +335,53 @@ public class DbService {
             resultImport = filePattenPath==null?null:filePattenPath.getPath();
         }
         if (vmType.equals(VmTypeEnums.SERVICE.getCode())) {
-            arrayList.add(poImport);
+            arrayList.add(modelImport);
             arrayList.add(daoImport);
             context.internalPut("needImports", arrayList);
         }
         if (vmType.equals(VmTypeEnums.DAO.getCode())) {
-            arrayList.add(poImport);
+            arrayList.add(modelImport);
             context.internalPut("needImports", arrayList);
         }
         if (vmType.equals(VmTypeEnums.CONTROLLER.getCode())) {
-            arrayList.add(poImport);
+            arrayList.add(modelImport);
             arrayList.add(serverImport);
-            arrayList.add(resultImport);
+            if (StringUtils.isNotBlank(resultImport)){
+                arrayList.add(resultImport);
+            }
             context.internalPut("needImports", arrayList);
         }
         if (vmType.equals(VmTypeEnums.SERVICE_IMPL.getCode())) {
             arrayList.add(daoImport);
-            arrayList.add(poImport);
+            arrayList.add(modelImport);
             arrayList.add(serverImport);
             context.internalPut("needImports", arrayList);
         }
         if (vmType.equals(VmTypeEnums.MAPPER.getCode())) {
             context.internalPut("daoImport", daoImport);
-            context.internalPut("poImport", poImport);
+            context.internalPut("modelImport", modelImport);
         }
 
     }
 
     private static String getRealPath(Integer template, ConnectDbSetting connectDbSetting) {
         if (template.equals(VmTypeEnums.RESULT.getCode())) {
-            return  connectDbSetting.getPoInput().getText();
+            return  connectDbSetting.getModelInput().getText();
         }
-        if (template.equals(VmTypeEnums.MODEL_PO.getCode())) {
-            return  connectDbSetting.getPoInput().getText()+"/po";
+        if (template.equals(VmTypeEnums.MODEL.getCode())) {
+            return  connectDbSetting.getModelInput().getText();
         }
 
         if (template.equals(VmTypeEnums.MODEL_BO.getCode())) {
-            return  connectDbSetting.getPoInput().getText()+"/bo";
+            return  connectDbSetting.getModelInput().getText()+"/bo";
         }
 
         if (template.equals(VmTypeEnums.MODEL_REQ.getCode())) {
-            return  connectDbSetting.getPoInput().getText()+"/req";
+            return  connectDbSetting.getModelInput().getText()+"/req";
         }
 
         if (template.equals(VmTypeEnums.MODEL_RESP.getCode())) {
-            return  connectDbSetting.getPoInput().getText()+"/resp";
+            return  connectDbSetting.getModelInput().getText()+"/resp";
         }
         if (template.equals(VmTypeEnums.DAO.getCode())) {
             return  connectDbSetting.getDaoInput().getText();
@@ -432,8 +449,8 @@ public class DbService {
         if (template.equals(VmTypeEnums.RESULT.getCode())) {
             return "Result.java";
         }
-        if (template.equals(VmTypeEnums.MODEL_PO.getCode())) {
-            return className + "Po.java";
+        if (template.equals(VmTypeEnums.MODEL.getCode())) {
+            return className + ".java";
         }
         if (template.equals(VmTypeEnums.MODEL_BO.getCode())) {
             return className + "Bo.java";

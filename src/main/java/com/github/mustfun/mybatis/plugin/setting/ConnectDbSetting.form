@@ -58,7 +58,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value=""/>
+          <text value="12345"/>
         </properties>
       </component>
       <component id="ff4b" class="javax.swing.JLabel" binding="portText">
@@ -246,27 +246,27 @@
               </component>
             </children>
           </grid>
-          <grid id="5f0d9" binding="poPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+          <grid id="5f0d9" binding="modelPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
-              <component id="9f6" class="com.intellij.ui.components.JBLabel" binding="poLabel">
+              <component id="9f6" class="com.intellij.ui.components.JBLabel" binding="modelLabel">
                 <constraints/>
                 <properties>
                   <preferredSize width="100" height="17"/>
                   <text value="Model层位置"/>
                 </properties>
               </component>
-              <component id="c7f47" class="com.intellij.ui.components.JBTextField" binding="poInput">
+              <component id="c7f47" class="com.intellij.ui.components.JBTextField" binding="modelInput">
                 <constraints/>
                 <properties>
                   <preferredSize width="250" height="30"/>
                 </properties>
               </component>
-              <component id="99e47" class="javax.swing.JButton" binding="poButton">
+              <component id="99e47" class="javax.swing.JButton" binding="modelButton">
                 <constraints/>
                 <properties>
                   <preferredSize width="20" height="30"/>

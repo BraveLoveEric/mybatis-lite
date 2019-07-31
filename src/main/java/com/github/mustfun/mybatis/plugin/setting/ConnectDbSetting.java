@@ -48,13 +48,13 @@ public class ConnectDbSetting {
     private JBLabel mapperLabel;
     private JBTextField mapperInput;
     private JButton mapperButton;
-    private JBLabel poLabel;
-    private JBTextField poInput;
-    private JButton poButton;
+    private JBLabel modelLabel;
+    private JBTextField modelInput;
+    private JButton modelButton;
     private JPanel daoPanel;
     private JPanel mapperPanel;
     private JPanel tablePrefixPanel;
-    private JPanel poPanel;
+    private JPanel modelPanel;
     private JBLabel controllerLabel;
     private JBTextField controllerInput;
     private JPanel controllerPanel;

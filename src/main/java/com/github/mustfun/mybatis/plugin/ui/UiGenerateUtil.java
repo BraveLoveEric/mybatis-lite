@@ -170,13 +170,13 @@ public final class UiGenerateUtil {
         });
 
         //找出model所在的目录
-        VirtualFile modelPath = JavaUtils.getFilePattenPath(baseDir, "/model/");
+        VirtualFile modelPath = JavaUtils.getFilePattenPath(baseDir, "/model/","/entity/");
         if (modelPath==null){
             modelPath = baseDir;
         }
         VirtualFile finalModelPath = modelPath;
-        connectDbSetting.getPoInput().setText(modelPath.getPath());
-        connectDbSetting.getPoButton().addActionListener(e->{
+        connectDbSetting.getModelInput().setText(modelPath.getPath());
+        connectDbSetting.getModelButton().addActionListener(e->{
             VirtualFile vf = uiComponentFacade.showSingleFolderSelectionDialog("请选择实体层存放目录", finalModelPath, baseDir);
             if (vf==null){
                 return;
@@ -184,7 +184,7 @@ public final class UiGenerateUtil {
             //打印的就是选择的路径
             String path = vf.getPath();
             System.out.println("path = " + path);
-            connectDbSetting.getPoInput().setText(path);
+            connectDbSetting.getModelInput().setText(path);
         });
 
         // 找出Service所在的目录
