@@ -17,7 +17,7 @@ buildscript {
 
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version "0.4.1"
+    id 'org.jetbrains.intellij' version "0.4.9"
 }
 
 apply plugin: 'idea'
@@ -53,8 +53,8 @@ intellij {
     //def ideaVersionExternDefinition = System.getenv("IDEA_VERSION")
     //version = ideaVersionExternDefinition ? ideaVersionExternDefinition : ideaVersion
     //println "Building for IntelliJ version: ${version}"
-    version = 'IU-2019.1'
-    plugins = ['coverage','Spring','DatabaseTools']//'coverage'
+    version = 'IU-2019.2'
+    plugins = ['coverage','Spring','DatabaseTools','java']//'coverage'
     pluginName = 'Mybatis-Lite'
 }
 patchPluginXml {
